@@ -3,10 +3,12 @@
 
 from auth.models import *
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User, AnonymousUser
+from public_define.pub_define import G_DOMAIN
 from public_func.views import init_result
+from public_coding import checkcode
+from public_coding.views import send_resetpd_email
 
-import re
+import re, time, hashlib
 
 Encoding = 'UTF-8'
 
@@ -35,9 +37,14 @@ def check_email_registered(email):
     pattern = re.compile(r'^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$')
 
     if pattern.match(email):
-        return DB_User_Extend.objects.check_email_exist(_email)
+        
+        ret = DB_User_Extend.objects.check_email_exist(email)
+        if ret:
+            return 1     # 邮箱已被注册
+        else:
+            return 2     # 邮箱未被注册
 
-    return True
+    return 0             # 邮箱不合法
 
 #--------------------for views--------------------------------------------
 def User_Regist(methodobj):
@@ -47,15 +54,22 @@ def User_Regist(methodobj):
         user_account  = methodobj.get("user_account")
         user_password = methodobj.get("user_password")
 
-        if not check_email_registered(user_account):  
+        ret_check = check_email_registered(user_account)
+
+        if ret_check == 2:  
             ret_regist = DB_User_Extend.objects.regist_user(username=user_account, password=user_password, email=user_account)
             
             if ret_regist:
-                result['Result'] = 'SUCCESS'
+                result['Result']  = 'SUCCESS'
+                result['Message'] = 'regist success'
             else:
                 result['Result']  = 'FAIL' 
                 result['Error']   = 'ERROR_USER_CREATE'
                 result['Message'] = 'create user fail'
+        elif ret_check == 1:
+            result['Result']  = 'FAIL' 
+            result['Error']   = 'ERROR_EMAIL_REGISTED'
+            result['Message'] = 'email have been registed'
         else:
             result['Result']  = 'FAIL' 
             result['Error']   = 'ERROR_EMAIL_INVALID'
@@ -82,6 +96,7 @@ def User_Login(methodobj, request):
 
                 result['Result'] = 'SUCCESS'
                 result['Message'] = 'login success'
+                del result['Error']
             else:
                 result['Result']  = 'FAIL'
                 result['Message'] = 'Authenticate failed'
@@ -104,32 +119,40 @@ def User_Logout(request):
     return result
 
 def User_Update_Password(methodobj, request):
-    result = User_CheckLogin(request)
+    result = User_CheckLogin(methodobj, request)
 
     if result['Result'] == 'SUCCESS':
-        userid = result['userid']
+        del result['userid']
+        del result['username']
 
-        if('old_password' in methodobj) and ('user_password' in methodobj):
-            oldpd = methodobj.get('old_password')
-            userpd = methodobj.get('user_password')
+        if('old_password' in methodobj) and ('user_password' in methodobj) and ('repeat_pd' in methodobj):
+            oldpd     = methodobj.get('old_password')
+            userpd    = methodobj.get('user_password')
+            repeat_pd = methodobj.get('repeat_pd')
 
-            try:
-            #if True:
-                if request.user.check_password(oldpd):
-                    request.user.set_password(userpd)
-                    request.user.save()
+            if cmp(userpd, repeat_pd) == 0:
+                try:
+                #if True:
+                    if request.user.check_password(oldpd):
+                        request.user.set_password(userpd)
+                        request.user.save()
 
-                    logout(request)
+                        logout(request)
 
-                    result['Result'] = 'SUCCESS'
-                else:
+                        result['Result'] = 'SUCCESS'
+                        result['Message'] = 'update password success'
+                    else:
+                        result['Result'] = 'FAIL'
+                        result['Message'] = 'The old password wrong'
+                        result['Error']  = 'ERROR_OLD_PASSWORD'
+                except:
                     result['Result'] = 'FAIL'
-                    result['Message'] = 'The old password wrong'
-                    result['Error']  = 'ERROR_OLD_PASSWORD'
-            except:
-                result['Result'] = 'FAIL'
-                result['Message'] = 'Service error'
-                result['Error'] = 'ERROR_SERVICE'
+                    result['Message'] = 'Service error'
+                    result['Error'] = 'ERROR_SERVICE'
+            else:
+                result['Result']  = 'FAIL'
+                result['Message'] = 'new_password and repeat_password do not match'
+                result['Error']   = 'ERROR_NOT_MATCH'
     else:
         result['Result'] = 'FAIL'
         result['Message'] = 'you have not logined'
@@ -171,3 +194,39 @@ def User_Reset_Password(methodobj):
         result['Error']   = 'ERROR_PARAMS_MISS'
 
     return result
+
+def User_Send_Email(methodobj, request):
+    result = init_result()
+
+    if 'user_account' in methodobj:
+        user_account = methodobj.get('user_account')
+
+        ret, pd_hash = DB_User_Extend.objects.get_user(user_account)
+        if ret:
+            source = user_account + pd_hash + str(time.time())
+            sign = hashlib.md5(source).hexdigest()
+
+            checkcode.create_license(request, user_account, sign)
+
+            checkuri = G_DOMAIN + '/auth/confirm_resetpassword/?id=' + sign
+            ret_mail = send_resetpd_email(user_account, checkuri)
+
+            if ret_mail:
+                result['Result'] = 'SUCCESS'
+                result['Message'] = 'send reset password email success'
+            else:
+                result['Result'] = 'FAIL'
+                result['Message'] = 'send reset password email failed'
+                result['Error'] = 'ERROR_SEND_FAIL'
+        else:
+            result['Result'] = 'FAIL'
+            result['Message'] = 'this user_account not exist'
+            result['Error'] = 'ERROR_NOT_EXIST'
+    else:
+        result['Result']  = 'FAIL'
+        result['Message'] = 'params miss'
+        result['Error']   = 'ERROR_PARAMS_MISS'
+
+    return result
+
+

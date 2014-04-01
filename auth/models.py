@@ -24,6 +24,7 @@ class User_Extend_Manager(models.Manager):
 
     def check_username_exist(self, username):
         ret_user = User.objects.filter(username=username)
+        
         if(len(ret_user) > 0):
             return True
         else:
@@ -31,6 +32,7 @@ class User_Extend_Manager(models.Manager):
 
     def check_email_exist(self, email):
         ret_user = self.filter(email=email)
+        
         if(len(ret_user) > 0):
             return True
         else:
@@ -38,6 +40,7 @@ class User_Extend_Manager(models.Manager):
 
     def reset_password(self, username, newpswd):
         ret_user = User.objects.filter(username=username)
+        
         if(len(ret_user) > 0):
             ret_user[0].set_password(newpswd)
             try:
@@ -49,6 +52,7 @@ class User_Extend_Manager(models.Manager):
 
     def update_logininfo(self, username, login_ip=None):
         ret_user = User.objects.filter(username=username)
+        
         if(len(ret_user) > 0):
             ret_Extend = self.filter(user=ret_user[0].id)
             if(len(ret_Extend) > 0):
@@ -57,6 +61,16 @@ class User_Extend_Manager(models.Manager):
                     return True
         return False
 
+    def get_user(self, email):
+        ret_user = self.filter(email=email)
+        
+        if len(ret_user) > 0:
+            userid = ret_user[0].user
+            user = User.objects.filter(id=userid)
+
+            return True, user[0].password[6:]
+        else:
+            return False, ''
 
 
 class DB_User_Extend(models.Model):

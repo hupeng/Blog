@@ -14,4 +14,9 @@ urlpatterns = patterns('',
     url(r'^updatepassword/?$', 'auth.views.updatepassword', name='updatepassword'),
     # 重置密码
     url(r'^resetpassword/?$', 'auth.views.resetpassword', name='resetpassword'),
+    # 发送邮件
+    url(r'^sendemail/?$', 'auth.views.sendemail', name='sendemail'),
+
+    #
+    url(r'^confirm_resetpassword/?$', 'auth.views.confirm_resetpassword', name='confirm_resetpassword'),
 )

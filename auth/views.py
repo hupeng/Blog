@@ -2,6 +2,7 @@
 #!/usr/local/bin/python
 
 from django.http import HttpResponse
+from django.shortcuts import render_to_response
 from auth import form
 
 from public_func.views import PFunc_OutputFomat, PFunc_methodobj
@@ -46,3 +47,22 @@ def resetpassword(request):
 
     Out_Result = PFunc_OutputFomat(methodobj, result, 'archive')
     return HttpResponse(Out_Result)
+
+def sendemail(request):
+    methodobj = PFunc_methodobj(request)
+
+    result = form.User_Send_Email(methodobj, request)
+
+    Out_Result = PFunc_OutputFomat(methodobj, result, 'archive')
+    return HttpResponse(Out_Result)
+
+def confirm_resetpassword(request):
+    methodobj = PFunc_methodobj(request)
+
+    sign = methodobj.get('id')
+    is_valid = False
+
+    if cmp(sign, request.session.get('sign')) == 0:
+        is_valid = True
+
+    return render_to_response('web/resetpassword.html', {'is_valid': is_valid})

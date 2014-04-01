@@ -37,7 +37,7 @@ def init_result(Authenticate='False',Result='UNKNOWN_ERROR',Message='An unknown 
     result['Message']      = Message
     result['Result']       = Result
 
-    return auth_result
+    return result
 
 def escape_to_url(urlvalue):
     escapeCode_value = {'+':'%2B',' ':'%20','/':'%2F','?':'%3F','%':'%25','#':'%23','&':'%26','=':'%3D'}
