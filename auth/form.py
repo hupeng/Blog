@@ -25,6 +25,7 @@ def User_CheckLogin(methodobj, request):
             result['Message']  = username.encode(Encoding) + ' has already login.'
             result['username'] = username.encode(Encoding)
             result['userid']   = request.user.id
+            result['is_super'] = bool(request.user.is_superuser)
     else:
         result['Authenticate'] = 'False'
         result['Result']       = 'FAIL'

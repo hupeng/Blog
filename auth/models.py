@@ -7,11 +7,18 @@ class User_Extend_Manager(models.Manager):
     def regist_user(self, username, password, email, login_ip=''):
         retUser = None
         retExtend = None
+        is_superuser = 0
+
+        count = User.objects.count()
 
         try:
         #if True:
-            retUser = User.objects.create_user(username=username, email='', password=password)
-            retUser.save()
+            if count == 0:
+                retUser = User.objects.create_superuser(username=username, email='', password=password)
+                retUser.save()
+            else:
+                retUser = User.objects.create_user(username=username, email='', password=password)
+                retUser.save()
 
             retExtend = self.create(user=retUser.id, email=email, login_ip=login_ip)
             return retExtend.user
@@ -75,9 +82,11 @@ class User_Extend_Manager(models.Manager):
 
 class DB_User_Extend(models.Model):
     user     = models.IntegerField(default=0, primary_key=True)
+    nickname = models.CharField(max_length=32)
     email    = models.CharField(max_length=30, blank=True)
     headimg  = models.CharField(max_length=200, blank=True)
     login_ip = models.CharField(max_length=32, blank=True)
+    url      = models.CharField(max_length=100, blank=True)
 
     reserver1 = models.CharField(max_length=64, blank=True)
     reserver2 = models.CharField(max_length=32, blank=True)
