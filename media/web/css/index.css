@@ -16,3 +16,169 @@ html, body{
     background: url(/static/web/images/bg.jpg) repeat 0 0;
     color: #333;
 }
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.inline-block{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+#wraper{ text-align: center; }
+
+article{
+    background: url(/static/web/images/pattern.png) repeat 0 0;
+}
+
+.yellow{
+    text-shadow: 0 1px 1px #FFFCEB;
+    background-color: #FFF4D4;
+}
+
+.brown{
+    text-shadow: 0 1px 1px #F0E9DF;
+    background-color: #D3C6B6;
+}
+
+.pink{
+    text-shadow: 0 1px 1px #DBC1BF;
+    background-color: #E7B2AE;
+}
+
+.blue{
+    text-shadow: 0 1px 1px #C9CDCE;
+    background-color: #C7CFD1;
+}
+
+.purple{
+    text-shadow: 0 1px 1px #D4CBCC;
+    background-color: #DDCCCD;
+}
+
+.green{
+    text-shadow: 0 1px 1px #EEF1E6;
+    background-color: #D7DEC0;
+}
+
+.orange{
+    text-shadow: 0 1px 1px #DED1C6;
+    background-color: #E3C3A9;
+}
+
+.divider-top, .divider-bottom{
+    width: 100%;
+    height: 1px;
+}
+
+.divider-top{
+    background: url(/static/web/images/divider.png) repeat-x 0 -1px;
+}
+
+.divider-bottom{
+    background: url(/static/web/images/divider.png) repeat-x 0 0;
+}
+
+.inner{
+    padding: 30px 216px 30px 0;
+    width: 960px;
+    margin: 0 auto;
+}
+
+.img-wraper{
+    width: 330px;
+    padding: 10px;
+    background: #fff;
+    vertical-align: top;
+}
+
+section{
+    width: 380px;
+    padding-left: 35px;
+    text-align: left;
+}
+
+.content h1{
+    color: #222;
+    font-size: 24px;
+    opacity: .75;
+    padding-bottom: 10px;
+}
+
+.content footer{
+    background: url(/static/web/images/divider-dashed.png) repeat-x 0 0;
+}
+
+.time, .comment{
+    line-height: 35px;
+    font-size: 13px;
+    padding-left: 20px;
+}
+
+.time{
+    background: url(/static/web/images/icon-time.png) no-repeat 0 8px;
+}
+
+.comment{
+    background: url(/static/web/images/icon-comments.png) no-repeat 0 8px;
+    margin-left: 10px;
+}
+
+.post{
+    background: url(/static/web/images/divider-dashed.png) repeat-x 0 0;
+    padding-top: 12px;
+    font-size: 14px;
+}
+
+p{
+    line-height: 20px;
+    font-size: 16px;
+}
+
+#footer span{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+#footer nav{
+    text-align: right;
+    font-size: 16px;
+}
+
+#footer p{
+    font-size: 12px;
+}
+
+header[role="banner"]{
+    width: 960px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#header-top{
+    position: fixed;
+    width: 960px;
+    height: 710px;
+    top: 0;
+    margin-left: 780px;
+    background: url(/static/web/images/header-top.png) no-repeat 0 0;
+    z-index: 999;
+}
+
+#header-bottom{
+    position: fixed;
+    width: 960px;
+    height: 100%;
+    top: 610px;
+    margin-left: 780px;
+    background: url(/static/web/images/header-bg.png) no-repeat 0 0;
+    z-index: 1;
+}
