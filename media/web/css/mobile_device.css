@@ -24,6 +24,35 @@
         left: 0;
         margin-left: 0;
         background: url(/static/web/images/header-tablet.png) no-repeat 0 0;
+        text-align: left;
+    }
+
+    #logo{
+        width: 286px;
+        height: 82px;
+        margin: 66px 0 0 38px;
+        display: inline-block;
+    }
+
+    #logo a{
+        padding-top: 82px;
+    }
+
+    #header-top nav{
+        display: inline-block;
+    }
+
+    #nav-github, #nav-weibo{
+        display: block;
+        margin-left: 22px;
+    }
+
+    #nav-github{
+        margin-top: -100px;
+    }
+
+    #nav-weibo{
+        margin-top: 18px;
     }
     
     #header-bottom {

@@ -26,6 +26,12 @@ a:hover{
     text-decoration: underline;
 }
 
+ul, li{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 .inline-block{
     display: inline-block;
     *display: inline;
@@ -169,7 +175,7 @@ header[role="banner"]{
     height: 710px;
     top: 0;
     margin-left: 780px;
-    background: url(/static/web/images/header-top.png) no-repeat 0 0;
+    background: url(/static/web/images/header-top-tmp.png) no-repeat 0 0;
     z-index: 999;
 }
 
@@ -181,4 +187,34 @@ header[role="banner"]{
     margin-left: 780px;
     background: url(/static/web/images/header-bg.png) no-repeat 0 0;
     z-index: 1;
+}
+
+#logo{
+    width: 82px;
+    height: 286px;
+    margin: 17px 0 0 57px;
+    overflow: hidden;
+}
+#logo a{
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-top: 286px;
+}
+
+#header-top ul{
+    text-align: left;
+}
+
+#nav-github{
+    margin: 15px 0 0 69px;
+}
+
+#nav-weibo{
+    margin-left: 17px;
+}
+
+#nav-github div, #nav-weibo div{
+    width: 36px;
+    height: 34px;
 }
