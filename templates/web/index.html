@@ -58,46 +58,8 @@
             </div>
             <div class="divider-bottom">&nbsp;</div>
         </article>
-        <footer id="footer">
-            <div class="divider-top">&nbsp;</div>
-            <div class="inner">
-                <nav>
-                    <a href="#">
-                        <span>Archive</span>
-                    </a> |
-                    <a href="#">
-                        <span>About</span>
-                    </a> |
-                    <a href="#">
-                        <span>Contact</span>
-                    </a> |
-                    <a href="#">
-                        <span>RSS Feed</span>
-                    </a>
-                    <p>© 2014 Ashley Baxter. All Rights Reserved.</p>
-                </nav>
-            </div>
-        </footer>
-        <header role="banner">
-            <div id="header-top">
-                <div id="logo">
-                    <a href="#">mai dou</a>
-                </div>
-                <nav>
-                   <ul>
-                        <li class="inline-block"  id="nav-github">
-                            <a href="#"><div></div></a>
-                        </li>
-                        <li class="nav-weibo inline-block" id="nav-weibo">
-                            <a href="#"><div></div></a>
-                        </li>
-                    </ul> 
-                </nav>
-                
-            </div>
-            <div id="header-bottom">&nbsp;</div>
-        </header>
+        {% include 'web/footer.html' %}
+        {% include 'web/header.html' %}
     </div>
-    
 </body>
 </html>

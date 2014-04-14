@@ -20,7 +20,8 @@ class DB_Article(models.Model):
     publish = models.DateTimeField(auto_now_add=True)
     comment = models.IntegerField(default=0)
     views   = models.IntegerField(default=0)
-    status  = models.IntegerField(default=0)    # 0 --- 草稿  1 --- 正式发布
+    status  = models.IntegerField(default=0)    # -1 --- 已删除 0 --- 草稿  1 --- 正式发布
+    weight  = models.IntegerField(default=0)    # 值越大，排序越靠前
 
     reserver1 = models.CharField(max_length=64, blank=True)
     reserver2 = models.CharField(max_length=32, blank=True)

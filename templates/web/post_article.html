@@ -5,6 +5,23 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="wraper">
+        <div id="title">
+            <p>发布新文章</p>
+            <hr>
+        </div>
+        <div class="form-elem">
+            <div class="divider-top">&nbsp;</div>
+            <div class="inner">
+                <label for="article-title">博客标题</label>
+                <input type="text" id="article-title">
+                <span class="must">*</span>
+            </div>
+            <div class="divider-bottom">&nbsp;</div>
+
+        </div>
+        {% include 'web/footer.html' %}
+        {% include 'web/header.html' %}
+    </div>
 </body>
 </html>
