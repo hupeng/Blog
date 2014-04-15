@@ -3,25 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="/static/web/css/common.css">
+    <link rel="stylesheet" href="/static/web/css/post_article.css">
 </head>
 <body>
     <div id="wraper">
         <div id="title">
-            <p>发布新文章</p>
+            <h3>发布新文章</h3>
             <hr>
         </div>
         <div class="form-elem">
             <div class="divider-top">&nbsp;</div>
             <div class="inner">
-                <label for="article-title">博客标题</label>
+                <label for="article-title">博客标题：</label>
                 <input type="text" id="article-title">
                 <span class="must">*</span>
             </div>
             <div class="divider-bottom">&nbsp;</div>
-
+        </div>
+        <div class="form-elem">
+            <div class="divider-top">&nbsp;</div>
+            <div class="inner">
+                <label for="article-des">摘要：</label>
+                <div name="rticle-des" id="article-des" class="inline-block" contenteditable="true"></div>
+                <span class="must">*</span>
+            </div>
+            <div class="divider-bottom">&nbsp;</div>
+        </div>
+        <div class="form-elem">
+            <div class="divider-top">&nbsp;</div>
+            <div class="inner">
+                <label for="article-tags">标签：</label>
+                <input type="text" id="article-tags">
+            </div>
+            <div class="divider-bottom">&nbsp;</div>
+        </div>
+        <div class="form-elem">
+            <div class="divider-top">&nbsp;</div>
+            <div class="inner">
+                <iframe id="article-file" name="article-file" style="display: none;"></iframe>
+                <form action="#" method="POST" enctype="multipart/form-data" target="article-file">
+                    <label for="article-file">上传博客：</label>
+                    <input type="text" id="article-file" readonly>
+                    <input type="file" name="file">
+                    <div class="submit inline-block" id="submit-file">上传</div>
+                    <div class="submit-ret inline-block done-fail">aaaaaa</div>
+                </form>
+            </div>
+            <div class="divider-bottom">&nbsp;</div>
+        </div>
+        <div class="form-elem">
+            <div class="divider-top">&nbsp;</div>
+            <div class="inner">
+                <iframe id="article-thumb" name="article-thumb" style="display: none;"></iframe>
+                <form action="#" method="POST" enctype="multipart/form-data" target="article-thumb">
+                    <label for="article-thumb">上传缩略图：</label>
+                    <input type="text" id="article-thumb" readonly>
+                    <input type="file" name="thumb">
+                    <div class="submit inline-block" id="submit-thumb">上传</div>
+                    <div class="submit-ret inline-block done-fail">aaaaaa</div>
+                </form>
+            </div>
+            <div class="divider-bottom">&nbsp;</div>
         </div>
         {% include 'web/footer.html' %}
-        {% include 'web/header.html' %}
+        {% include 'web/admin-header.html' %}
     </div>
+    <script type="text/javascript" src="/static/common/scripts/jquery-1.7.2.min.js"></script>
+    <script>
+        // var textarea = document.getElementById("article-des");
+        // textarea.onkeydown = function(){
+        //     this.style.height = this.scrollHeight + "px";
+        // }
+    </script>
 </body>
 </html>
