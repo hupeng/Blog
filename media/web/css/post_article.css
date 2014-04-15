@@ -55,8 +55,11 @@ label[for="article-des"]{
 }
 
 input[type="file"]{
-    display: none;
     cursor: pointer;
+    width: 210px;
+    margin-left: -214px;
+    vertical-align: top;
+    opacity: 0;
 }
 
 #article-file, #article-thumb{

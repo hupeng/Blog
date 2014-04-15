@@ -45,7 +45,7 @@
                 <form action="#" method="POST" enctype="multipart/form-data" target="article-file">
                     <label for="article-file">上传博客：</label>
                     <input type="text" id="article-file" readonly>
-                    <input type="file" name="file">
+                    <input type="file" name="file" class="inline-block">
                     <div class="submit inline-block" id="submit-file">上传</div>
                     <div class="submit-ret inline-block done-fail">aaaaaa</div>
                 </form>
@@ -59,7 +59,7 @@
                 <form action="#" method="POST" enctype="multipart/form-data" target="article-thumb">
                     <label for="article-thumb">上传缩略图：</label>
                     <input type="text" id="article-thumb" readonly>
-                    <input type="file" name="thumb">
+                    <input type="file" name="thumb" class="inline-block">
                     <div class="submit inline-block" id="submit-thumb">上传</div>
                     <div class="submit-ret inline-block done-fail">aaaaaa</div>
                 </form>
@@ -71,10 +71,14 @@
     </div>
     <script type="text/javascript" src="/static/common/scripts/jquery-1.7.2.min.js"></script>
     <script>
-        // var textarea = document.getElementById("article-des");
-        // textarea.onkeydown = function(){
-        //     this.style.height = this.scrollHeight + "px";
-        // }
+        var $input_file = $('input[type="file"]');
+
+        $input_file.bind("change", function(){
+            var $input = $(this.parentNode).find("input[readonly]");
+            if($input.length > 0){
+                $input[0].value = this.value;
+            }
+        })
     </script>
 </body>
 </html>
