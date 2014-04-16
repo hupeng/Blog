@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>发布新博客</title>
     <link rel="stylesheet" href="/static/web/css/common.css">
     <link rel="stylesheet" href="/static/web/css/post_article.css">
 </head>
 <body>
     <div id="wraper">
         <div id="title">
-            <h3>发布新文章</h3>
+            <h3>发布新博客</h3>
             <hr>
         </div>
         <div class="form-elem">
@@ -19,27 +19,21 @@
                 <input type="text" id="article-title">
                 <span class="must">*</span>
             </div>
-            <div class="divider-bottom">&nbsp;</div>
         </div>
         <div class="form-elem">
-            <div class="divider-top">&nbsp;</div>
             <div class="inner">
                 <label for="article-des">摘要：</label>
                 <div name="rticle-des" id="article-des" class="inline-block" contenteditable="true"></div>
                 <span class="must">*</span>
             </div>
-            <div class="divider-bottom">&nbsp;</div>
         </div>
         <div class="form-elem">
-            <div class="divider-top">&nbsp;</div>
             <div class="inner">
                 <label for="article-tags">标签：</label>
                 <input type="text" id="article-tags">
             </div>
-            <div class="divider-bottom">&nbsp;</div>
         </div>
         <div class="form-elem">
-            <div class="divider-top">&nbsp;</div>
             <div class="inner">
                 <iframe id="article-file" name="article-file" style="display: none;"></iframe>
                 <form action="#" method="POST" enctype="multipart/form-data" target="article-file">
@@ -50,10 +44,8 @@
                     <div class="submit-ret inline-block done-fail">aaaaaa</div>
                 </form>
             </div>
-            <div class="divider-bottom">&nbsp;</div>
         </div>
         <div class="form-elem">
-            <div class="divider-top">&nbsp;</div>
             <div class="inner">
                 <iframe id="article-thumb" name="article-thumb" style="display: none;"></iframe>
                 <form action="#" method="POST" enctype="multipart/form-data" target="article-thumb">
@@ -63,6 +55,11 @@
                     <div class="submit inline-block" id="submit-thumb">上传</div>
                     <div class="submit-ret inline-block done-fail">aaaaaa</div>
                 </form>
+            </div>
+        </div>
+        <div class="form-elem">
+            <div class="inner">
+                <div class="submit" id="publish">发布博客</div>
             </div>
             <div class="divider-bottom">&nbsp;</div>
         </div>

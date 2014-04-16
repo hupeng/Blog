@@ -194,12 +194,12 @@ header[role="banner"]{
 
 .item a:hover{
     text-decoration: none;
-    color: #EB9958;
+    color: #1B9472;
 }
 
 .item-hover{
     margin-left: 40px;
-    border-left: 7px solid #EB9958;
+    border-left: 7px solid #1B9472;
     padding-left: 22px;
-    color: #EB9958;
+    color: #1B9472;
 }

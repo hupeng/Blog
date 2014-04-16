@@ -1,0 +1,151 @@
+#title{
+    text-align: left;
+    height: 75px;
+    padding-top: 20px;
+    background: url(/static/web/images/pattern.png) repeat 0 0 #D7DEC0;
+}
+
+h3{
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: normal;
+    height: 42px;
+    line-height: 42px;
+}
+
+hr{
+    clear: both;
+}
+
+article{
+    background: none;
+}
+
+.content .inner{
+    margin: 0;
+    padding: 10px 216px 10px 60px;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.search-wrap{
+    height: 42px;
+    border: 2px solid #1B9472;
+    font-size: 0;
+    line-height: 42px;
+    float: right;
+    width: 600px;
+    margin-right: 360px;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+         -o-border-radius: 5px;
+            border-radius: 5px;
+}
+
+#keyword{
+    height: 100%;
+    width: 100%;
+    margin-right: -60px;
+    font-size: 14px;
+    padding-right: 60px;
+    padding-left: 10px;
+}
+
+#submit-search{
+    width: 60px;
+    font-size: 16px;
+    color: #fff;
+    background: url(/static/web/images/pattern.png) repeat 0 0 #1B9472;
+    height: 100%;
+    vertical-align: top;
+    text-align: center;
+    cursor: pointer;
+    -webkit-border-top-right-radius: 2px;
+       -moz-border-top-right-radius: 2px;
+        -ms-border-top-right-radius: 2px;
+         -o-border-top-right-radius: 2px;
+            border-top-right-radius: 2px;
+    -webkit-border-bottom-right-radius: 2px;
+       -moz-border-bottom-right-radius: 2px;
+        -ms-border-bottom-right-radius: 2px;
+         -o-border-bottom-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+}
+
+section{
+    width: auto;
+    padding-left: 0;
+}
+
+.content h1{
+    padding-bottom: 0;
+}
+
+.content footer{
+    background: none;
+}
+
+.post{
+    background: none;
+}
+
+.option{
+    line-height: 32px;
+    font-size: 16px;
+    padding-left: 20px;
+}
+
+.view{
+    background: url(/static/web/images/icon-view.png) no-repeat 0 8px;
+    margin-left: 10px;
+}
+
+.options{
+    font-size: 16px;
+    color: #1B9472;
+}
+
+.options .option{
+    cursor: pointer;
+}
+
+.options .option:hover{
+    text-decoration: underline;
+}
+
+.top-most{
+    background: url(/static/web/images/icon-top.png) no-repeat 0 8px;
+}
+
+.to-draft{
+    background: url(/static/web/images/icon-delete.png) no-repeat 0 8px;
+    margin-left: 10px;
+}
+
+.page{
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.left{
+    background: url(/static/web/images/icon-left.png) no-repeat -2px -1px rgba(255, 255, 255, 0.3);
+}
+
+.left:hover{
+    background: url(/static/web/images/icon-left-hover.png) no-repeat -2px -1px #1B9472;
+}
+
+.right{
+    margin-left: 20px;
+    background: url(/static/web/images/icon-right.png) no-repeat -2px -1px rgba(255, 255, 255, 0.3);
+}
+
+.right:hover{
+    background: url(/static/web/images/icon-right-hover.png) no-repeat -2px -1px #1B9472;
+}
+
+section a:hover{
+    text-decoration: none;
+}

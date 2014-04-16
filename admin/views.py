@@ -4,4 +4,11 @@
 from django.shortcuts import render_to_response
 
 def publish(request):
-    return render_to_response('web/post_article.html')
+    context = {'publish': 'item-hover'}
+
+    return render_to_response('web/post_article.html', context)
+
+def my_article(request):
+    context = {'myArticle': 'item-hover'}
+    
+    return render_to_response('web/my_article.html', context)
