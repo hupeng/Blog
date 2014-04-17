@@ -1,14 +1,16 @@
 #title{
     text-align: left;
-    line-height: 30px;
+    height: 75px;
     padding-top: 20px;
-    background: url(/static/web/images/pattern.png) repeat 0 0 #F0C7A7;
+    background: url(/static/web/images/pattern.png) repeat 0 0 #D7DEC0;
 }
 
 h3{
     padding-left: 30px;
     font-size: 20px;
     font-weight: normal;
+    height: 42px;
+    line-height: 42px;
 }
 
 .form-elem{

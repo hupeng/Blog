@@ -8,5 +8,7 @@ urlpatterns = patterns('',
     url(r'^publish/?$', 'admin.views.publish', name='publish'),
     # 我的博客
     url(r'^my-article/?', 'admin.views.my_article', name='my_article'),
+    # 草稿箱
+    url(r'^draft/?', 'admin.views.draft', name='draft'),
     
 )

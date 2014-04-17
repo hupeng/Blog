@@ -33,9 +33,8 @@ article{
     border: 2px solid #1B9472;
     font-size: 0;
     line-height: 42px;
-    float: right;
     width: 600px;
-    margin-right: 360px;
+    margin-left: 7%;
     -webkit-border-radius: 5px;
        -moz-border-radius: 5px;
         -ms-border-radius: 5px;
@@ -120,7 +119,13 @@ section{
 
 .to-draft{
     background: url(/static/web/images/icon-delete.png) no-repeat 0 8px;
-    margin-left: 10px;
+    margin-left: 15px;
+}
+
+.edit{
+    background: url(/static/web/images/icon-edit.png) no-repeat 0 8px;
+    margin-left: 15px;
+    padding-left: 25px;
 }
 
 .page{
