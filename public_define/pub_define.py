@@ -19,9 +19,9 @@ else:               # 正式发布
     G_DOMAIN = ''
 
 # 发送者账号    
-G_EMAIL_SENDER_NAME = '376740386@qq.com'
+G_EMAIL_SENDER_NAME = 'someone@qq.com'
 # 发送者账号密码
-G_EMAIL_SENDER_PW   = 'hp15859281937'
+G_EMAIL_SENDER_PW   = '**********'
 # smtp服务器地址
 G_EMAIL_SMTP        = 'smtp.exmail.qq.com'
 # smtp服务器端口
