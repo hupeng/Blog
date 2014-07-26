@@ -1,66 +1,126 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="/static/web/css/common.css">
     <link rel="stylesheet" href="/static/web/css/index.css">
-    <link rel="stylesheet" href="/static/web/css/mobile_device.css">
 </head>
 <body>
-    <div id="wraper">
-        <article class="content yellow">
-            <div class="divider-top">&nbsp;</div>
-            <div class="inner">
-                <div class="img-wraper inline-block">
-                    <img src="/static/web/images/1.jpg" alt="" width="100%" height="100%">
+    <div id="header"></div>
+    <div id="main">
+        <div class="m-aside">
+            <div class="wedge weibo">
+                <div class="wed-title">我的微博</div>
+                <div class="wed-cont">
+                    <iframe width="100%" height="400" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=90&fansRow=1&ptype=1&speed=0&skin=9&isTitle=0&noborder=0&isWeibo=0&isFans=0&uid=1823003625&verifier=b2640eff&colors=F5F5F5,ffffff,666666,71ddc6,ecfbfd&dpc=1"></iframe>
                 </div>
-                <section class="inline-block">
-                    <header>
-                        <h1>
-                            <a href="#">hello world</a>
-                        </h1>
-                    </header>
-                    <footer>
-                        <div class="time inline-block">March 25, 2014</div>
-                        <div class="comment inline-block">1条评论</div>
-                    </footer>
-                    <div class="post">
-                        <p>
-                            On Sunday I followed Joshua around on his shoot with Adam. I took a bunch of behind the scenes photos of Joshua being a pro, which you will see… eventually. Afterwards I got a glimpse into how Joshua edits his photos, which is an interesting insight. I should watch other photographer’s process more often.
-                        </p>
-                    </div>
-                </section>
             </div>
-            <div class="divider-bottom">&nbsp;</div>
-        </article>
-        <article class="content brown">
-            <div class="divider-top">&nbsp;</div>
-            <div class="inner">
-                <div class="img-wraper inline-block">
-                    <img src="/static/web/images/1.jpg" alt="" width="100%" height="100%">
+            <div class="wedge wed-art-list">
+                <div class="wed-title">最新文章</div>
+                <div class="wed-cont">
+                    <ul>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                    </ul>
                 </div>
-                <section class="inline-block">
-                    <header>
-                        <h1>
-                            <a href="#">hello world hello world hello world hello world</a>
-                        </h1>
-                    </header>
-                    <footer>
-                        <div class="time inline-block">March 25, 2014</div>
-                        <div class="comment inline-block">1条评论</div>
-                    </footer>
-                    <div class="post">
-                        <p>
-                            On Sunday I followed Joshua around on his shoot with Adam. I took a bunch of behind the scenes photos of Joshua being a pro, which you will see… eventually. Afterwards I got a glimpse into how Joshua edits his photos, which is an interesting insight. I should watch other photographer’s process more often.
-                        </p>
-                    </div>
-                </section>
             </div>
-            <div class="divider-bottom">&nbsp;</div>
-        </article>
-        {% include 'web/footer.html' %}
-        {% include 'web/header.html' %}
+            <div class="wedge wed-art-list">
+                <div class="wed-title">热门文章</div>
+                <div class="wed-cont">
+                    <ul>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                        <li><a href="#">这是第一篇文章</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="wedge">
+                <div class="wed-title">标签</div>
+                <div class="wed-cont"></div>
+            </div>
+        </div>
+        <div class="m-wrap">
+            <div class="article">
+                <h2 class="art-title">hello world hello world hello world hello world</h2>
+                <p>On Sunday I followed Joshua around on his shoot with Adam. I took a bunch of behind the scenes photos of Joshua being a pro, which you will see… eventually. Afterwards I got a glimpse into how Joshua edits his photos, which is an interesting insight. I should watch other photographer’s process more often.</p>
+                <div class="cf art-imgs">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="art-attr">
+                    <a href="#" target="_blank">阅读全文>></a>
+                    <span class="art-views">1234</span>
+                    <span class="art-comts">345</span>
+                    <span class="vertical">|</span>
+                    <span class="art-date">2014-07-25 10:37:37</span>
+                </div>
+            </div>
+            <div class="article">
+                <h2 class="art-title">hello world hello world hello world hello world</h2>
+                <p>On Sunday I followed Joshua around on his shoot with Adam. I took a bunch of behind the scenes photos of Joshua being a pro, which you will see… eventually. Afterwards I got a glimpse into how Joshua edits his photos, which is an interesting insight. I should watch other photographer’s process more often.</p>
+                <div class="cf art-imgs">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="art-attr">
+                    <a href="#" target="_blank">阅读全文>></a>
+                    <span class="art-views">1234</span>
+                    <span class="art-comts">345</span>
+                    <span class="vertical">|</span>
+                    <span class="art-date">2014-07-25 10:37:37</span>
+                </div>
+            </div>
+            <div class="article">
+                <h2 class="art-title">hello world hello world hello world hello world</h2>
+                <p>On Sunday I followed Joshua around on his shoot with Adam. I took a bunch of behind the scenes photos of Joshua being a pro, which you will see… eventually. Afterwards I got a glimpse into how Joshua edits his photos, which is an interesting insight. I should watch other photographer’s process more often.</p>
+                <div class="cf art-imgs">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="art-attr">
+                    <a href="#" target="_blank">阅读全文>></a>
+                    <span class="art-views">1234</span>
+                    <span class="art-comts">345</span>
+                    <span class="vertical">|</span>
+                    <span class="art-date">2014-07-25 10:37:37</span>
+                </div>
+            </div>
+        </div>
+        <div class="page-nav">
+            <ul class="cf">
+                <li><a href="">首页</a></li>
+                <li><a href="">上一页</a></li>
+                <li class="page-live"><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li>...</li>
+                <li><a href="">7</a></li>
+                <li><a href="">8</a></li>
+                <li><a href="">下一页</a></li>
+            </ul>
+        </div>
     </div>
+    <div id="footer"></div>
 </body>
 </html>

@@ -7,7 +7,7 @@ this file for define params of program
 from pub_define import G_DEBUG
 
 if G_DEBUG:
-    PROJECT_PATH = 'E:/project Python/Blog/'
+    PROJECT_PATH = '/home/danny/project/Blog/'
 
     PROJECT_NAME = 'Blog'
 

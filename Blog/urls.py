@@ -19,4 +19,5 @@ urlpatterns = patterns('',
     (r'^$', 'website.views.index'),
     (r'^auth/', include('auth.urls')),
     (r'^admin/', include('admin.urls')),
+    (r'^website/', include('website.urls')),
 )

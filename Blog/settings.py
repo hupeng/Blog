@@ -113,6 +113,7 @@ INSTALLED_APPS = (
     'public_define',
     'auth',
     'admin',
+    'website',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

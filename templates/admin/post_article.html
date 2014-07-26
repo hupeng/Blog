@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布新博客</title>
+    <link rel="stylesheet" href="/static/web/css/common.css">
+    <link rel="stylesheet" href="/static/web/css/post_article.css">
+</head>
+<body>
+    <div id="wraper">
+        <div id="title">
+            <h3>发布新博客</h3>
+        </div>
+        <hr>
+        <div class="form-elem">
+            <div class="divider-top">&nbsp;</div>
+            <div class="inner">
+                <label for="article-title">博客标题：</label>
+                <input type="text" id="article-title">
+                <span class="must">*</span>
+            </div>
+        </div>
+        <div class="form-elem">
+            <div class="inner">
+                <label for="article-des">摘要：</label>
+                <div name="rticle-des" id="article-des" class="inline-block" contenteditable="true"></div>
+                <span class="must">*</span>
+            </div>
+        </div>
+        <div class="form-elem">
+            <div class="inner">
+                <label for="article-tags">标签：</label>
+                <input type="text" id="article-tags">
+            </div>
+        </div>
+        <div class="form-elem">
+            <div class="inner">
+                <iframe id="article-file" name="article-file" style="display: none;"></iframe>
+                <form action="#" method="POST" enctype="multipart/form-data" target="article-file">
+                    <label for="article-file">上传博客：</label>
+                    <input type="text" id="article-file" readonly>
+                    <input type="file" name="file" class="inline-block">
+                    <div class="submit inline-block" id="submit-file">上传</div>
+                    <div class="submit-ret inline-block done-fail">aaaaaa</div>
+                </form>
+            </div>
+        </div>
+        <div class="form-elem">
+            <div class="inner">
+                <iframe id="article-thumb" name="article-thumb" style="display: none;"></iframe>
+                <form action="#" method="POST" enctype="multipart/form-data" target="article-thumb">
+                    <label for="article-thumb">上传缩略图：</label>
+                    <input type="text" id="article-thumb" readonly>
+                    <input type="file" name="thumb" class="inline-block">
+                    <div class="submit inline-block" id="submit-thumb">上传</div>
+                    <div class="submit-ret inline-block done-fail">aaaaaa</div>
+                </form>
+            </div>
+        </div>
+        <div class="form-elem">
+            <div class="inner">
+                <div class="submit" id="publish">发布博客</div>
+            </div>
+            <div class="divider-bottom">&nbsp;</div>
+        </div>
+        {% include 'web/footer.html' %}
+        {% include 'web/admin-header.html' %}
+    </div>
+    <script type="text/javascript" src="/static/common/scripts/jquery-1.7.2.min.js"></script>
+    <script>
+        var $input_file = $('input[type="file"]');
+
+        $input_file.bind("change", function(){
+            var $input = $(this.parentNode).find("input[readonly]");
+            if($input.length > 0){
+                $input[0].value = this.value;
+            }
+        })
+    </script>
+</body>
+</html>
