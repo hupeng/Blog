@@ -3,57 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="/static/web/css/common.css">
     <link rel="stylesheet" href="/static/web/css/index.css">
 </head>
 <body>
-    <div id="header"></div>
+    {% include 'web/header.html' %}
     <div id="main">
-        <div class="m-aside">
-            <div class="wedge weibo">
-                <div class="wed-title">我的微博</div>
-                <div class="wed-cont">
-                    <iframe width="100%" height="400" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=90&fansRow=1&ptype=1&speed=0&skin=9&isTitle=0&noborder=0&isWeibo=0&isFans=0&uid=1823003625&verifier=b2640eff&colors=F5F5F5,ffffff,666666,71ddc6,ecfbfd&dpc=1"></iframe>
-                </div>
-            </div>
-            <div class="wedge wed-art-list">
-                <div class="wed-title">最新文章</div>
-                <div class="wed-cont">
-                    <ul>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="wedge wed-art-list">
-                <div class="wed-title">热门文章</div>
-                <div class="wed-cont">
-                    <ul>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                        <li><a href="#">这是第一篇文章</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="wedge">
-                <div class="wed-title">标签</div>
-                <div class="wed-cont"></div>
-            </div>
-        </div>
+        {% include 'web/aside.html' %}
         <div class="m-wrap">
             <div class="article">
                 <h2 class="art-title">hello world hello world hello world hello world</h2>
@@ -121,6 +77,6 @@
             </ul>
         </div>
     </div>
-    <div id="footer"></div>
+    {% include 'web/footer.html' %}
 </body>
 </html>

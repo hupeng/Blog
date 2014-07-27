@@ -114,7 +114,7 @@ class DB_Article_Comment(models.Model):
     com_type   = models.IntegerField(default=0)     # 0 --- 正常   1 --- 回复
     reply      = models.CharField(max_length=200, blank=True)
     date       = models.DateTimeField(auto_now_add=True)
-    status     = models.IntegerField(defualt=0)     # 0 --- 审核中  1 --- 通过
+    status     = models.IntegerField(default=0)     # 0 --- 审核中  1 --- 通过
 
     reserver1 = models.CharField(max_length=64, blank=True)
     reserver2 = models.CharField(max_length=32, blank=True)
