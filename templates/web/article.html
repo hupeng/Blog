@@ -5,7 +5,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/static/web/css/common.css">
     <link rel="stylesheet" href="/static/web/css/article.css">
-    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
+    <link rel="stylesheet" href="/static/web/css/markdown_style.css">  
     <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script> 
 </head>
 <body>
@@ -14,24 +14,67 @@
         {% include 'web/aside.html' %}
         <div class="m-wrap">
             <h2 class="art-title">hello world hello world hello world hello world</h2>
-            <div class="article">
-                <div class="art-attr">
-                    <span class="art-comts">345</span>
-                    <span class="art-views">1234</span>
-                    <span class="art-date">2014-07-25</span>
+            <div class="article markdown-body markdown-format">
+                <h1>前端模块化开发的价值</h1>
+                <p>随着互联网的飞速发展，前端开发越来越复杂。本文将从实际项目中遇到的问题出发，讲述模块化能解决哪些问题，以及如何使用 Sea.js 进行前端的模块化开发。</p>
+                <h2>恼人的命名冲突</h2>
+                <p>我们从一个简单的习惯出发。我做项目时，常常会将一些通用的、底层的功能抽象出来，独立成一个个函数，比如</p>
+                <div class="highlight highlight-js">
+                        <pre>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"sea.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">seajs</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'dialog'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Dialog</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Dialog</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="cm">/* 传入配置 */</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+                        </pre>
                 </div>
-                <p>On Sunday I followed Joshua around on his shoot with Adam. I took a bunch of behind the scenes photos of Joshua being a pro, which you will see… eventually. Afterwards I got a glimpse into how Joshua edits his photos, which is an interesting insight. I should watch other photographer’s process more often.</p>
-                <div class="cf art-imgs">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                
+                <p>并像模像样地把这些函数统一放在 util.js 里。需要用到时，引入该文件就行。这一切工作得很好，同事也很感激我提供了这么便利的工具包。</p>
+                <p>直到团队越来越大，开始有人抱怨。</p>
+                <blockquote>
+                    <p>小杨：我想定义一个 each 方法遍历对象，但页头的 util.js 里已经定义了一个，我的只能叫 eachObject 了，好无奈。</p>
+                    <p>小高：我自定义了一个 log 方法，为什么小明写的代码就出问题了呢？谁来帮帮我。</p>
+                </blockquote>
+                <p>抱怨越来越多。团队经过一番激烈的讨论，决定参照 Java 的方式，引入命名空间来解决。于是 util.js 里的代码变成了</p>
+                <p>不要认为上面的代码是为了写这篇文章而故意捏造的。将命名空间的概念在前端中发扬光大，首推 Yahoo! 的 YUI2 项目。下面是一段真实代码，来自 Yahoo! 的一个开源项目。</p>
+                <p>通过命名空间，的确能极大缓解冲突。但每每看到上面的代码，都忍不住充满同情。为了调用一个简单的方法，需要记住如此长的命名空间，这增加了记忆负担，同时剥夺了不少编码的乐趣。</p>
+                <p>作为前端业界的标杆，YUI 团队下定决心解决这一问题。在 YUI3 项目中，引入了一种新的命名空间机制。</p>
+                <p>YUI3 通过沙箱机制，很好的解决了命名空间过长的问题。然而，也带来了新问题。</p>
+                <p>看似简单的命名冲突，实际解决起来并不简单。如何更优雅地解决？我们按下暂且不表，先来看另一个常见问题。</p>
+                <h2>烦琐的文件依赖</h2>
+                <p>继续上面的故事。基于 util.js，我开始开发 UI 层通用组件，这样项目组同事就不用重复造轮子了。</p>
+                <p>其中有一个最被大家喜欢的组件是 dialog.js，使用方式很简单。</p>
+                <ol class="task-list">
+                    <li>通用组更新了前端基础类库，却很难推动全站升级。</li>
+                    <li>业务组想用某个新的通用组件，但发现无法简单通过几行代码搞定。</li>
+                    <li>一个老产品要上新功能，最后评估只能基于老的类库继续开发。</li>
+                    <li>公司整合业务，某两个产品线要合并。结果发现前端代码冲突。</li>
+                    <li>……</li>
+                </ol>
+                <p>以上很多问题都是因为文件依赖没有很好的管理起来。在前端页面里，大部分脚本的依赖目前依旧是通过人肉的方式保证。当团队比较小时，这不会有什么问题。当团队越来越大，公司业务越来越复杂后，依赖问题如果不解决，就会成为大问题。</p>
+                <p>文件的依赖，目前在绝大部分类库框架里，比如国外的 YUI3 框架、国内的 KISSY 等类库，目前是通过配置的方式来解决。</p>
+                <p>上面的代码，通过 <code>requires</code> 等方式来指定当前模块的依赖。这很大程度上可以解决依赖问题，但不够优雅。当模块很多，依赖很复杂时，烦琐的配置会带来不少隐患。</p>
+                <p>命名冲突和文件依赖，是前端开发过程中的两个经典问题。下来我们看如何通过模块化开发来解决。为了方便描述，我们使用 Sea.js 来作为模块化开发框架。</p>
+                <h2>使用 Sea.js 来解决</h2>
+                <p>Sea.js 是一个成熟的开源项目，核心目标是给前端开发提供简单、极致的模块化开发体验。这里不多做介绍，有兴趣的可以访问 <a href="http://seajs.org/">seajs.org</a> 查看官方文档。</p>
+                <p>使用 Sea.js，在书写文件时，需要遵守 CMD （Common Module Definition）模块定义规范。一个文件就是一个模块。前面例子中的 util.js 变成</p>
+                <p>关键部分到了！我们通过 <code>require('./util.js')</code> 就可以拿到 util.js 中通过 <code>exports</code> 暴露的接口。这里的 <strong>require</strong> 可以认为是 Sea.js 给 JavaScript 语言增加的一个 <strong>语法关键字</strong>，通过 <code>require</code> 可以获取其他模块提供的接口。</p>
+                <p>这其实一点也不神奇。作为前端工程师，对 CSS 代码一定也不陌生。</p>
+                <ol class="task-list">
+                    <li><p><strong>通过 <code>exports</code> 暴露接口</strong>。这意味着不需要命名空间了，更不需要全局变量。这是一种彻底的命名冲突解决方案。</p></li>
+                    <li><p><strong>通过 <code>require</code> 引入依赖</strong>。这可以让依赖内置，开发者只需关心当前模块的依赖，其他事情 Sea.js 都会自动处理好。对模块开发者来说，这是一种很好的 <strong>关注度分离</strong>，能让程序员更多地享受编码的乐趣。</p></li>
+                </ol>
+                <p>（完）<br>
+                    特别感谢这篇文章： <a href="http://chaoskeh.com/blog/why-seajs.html">http://chaoskeh.com/blog/why-seajs.html</a><br>
+                    参考了部分内容。
+                </p>
+                <hr>
+                <h3>2013-04-23</h3>
+                <p>补充一篇很不错的入门文档：<a href="http://hi.baidu.com/liuda101/item/54bcf8d0b6a65602d68ed057">一步步学会使用 Sea.js 2.0</a></p>
             </div>
-
         </div>
     </div>
+
     {% include 'web/footer.html' %}
 </body>
 </html>
