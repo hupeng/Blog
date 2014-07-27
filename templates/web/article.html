@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="/static/web/css/markdown_style.css">
     <link rel="stylesheet" href="/static/web/css/common.css">
     <link rel="stylesheet" href="/static/web/css/article.css">
-    <link rel="stylesheet" href="/static/web/css/markdown_style.css">  
     <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script> 
 </head>
 <body>
@@ -13,9 +13,13 @@
     <div id="main">
         {% include 'web/aside.html' %}
         <div class="m-wrap">
-            <h2 class="art-title">hello world hello world hello world hello world</h2>
+            <h2 class="art-title">前端模块化开发的价值</h2>
+            <div class="art-attr">
+                <span class="art-comts">345</span>
+                <span class="art-views">1234</span>
+                <span class="art-date">2014-07-25 10:37:37</span>
+            </div>
             <div class="article markdown-body markdown-format">
-                <h1>前端模块化开发的价值</h1>
                 <p>随着互联网的飞速发展，前端开发越来越复杂。本文将从实际项目中遇到的问题出发，讲述模块化能解决哪些问题，以及如何使用 Sea.js 进行前端的模块化开发。</p>
                 <h2>恼人的命名冲突</h2>
                 <p>我们从一个简单的习惯出发。我做项目时，常常会将一些通用的、底层的功能抽象出来，独立成一个个函数，比如</p>

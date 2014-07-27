@@ -6,14 +6,13 @@ body,html,a,img,div,form,select,input,ul,ol,ul,li,h1,h2,h3,h4,h5,h6,dd,dl,dt,p,l
 body{font-size:12px;font-family:'Microsoft YaHei', sans-serif;background: url(/static/web/images/pattern.png) #FFF4D4 repeat 0 0;color: #333;}
 a{color:inherit;*color:#666;text-decoration:none;}
 a:hover{text-decoration:underline;color:#339999;}
-ol,ul,li{list-style:none;}
 em,i{font-style:normal;}
 img{border:none;}
 
 /* header */
 #header{height:50px;background:#fff;-webkit-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 1px 0px, rgba(0, 0, 0, 0.0980392) 0px 0px 1px 0px;-moz-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 1px 0px, rgba(0, 0, 0, 0.0980392) 0px 0px 1px 0px;-ms-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 1px 0px, rgba(0, 0, 0, 0.0980392) 0px 0px 1px 0px;-o-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 1px 0px, rgba(0, 0, 0, 0.0980392) 0px 0px 1px 0px;box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 1px 0px, rgba(0, 0, 0, 0.0980392) 0px 0px 1px 0px;}
 .h-wrap{width: 90%;max-width: 1200px;min-width: 960px;margin:0 auto;overflow:hidden;line-height: 50px;font-size: 18px;}
-.nav{float:right;overflow:hidden;}
+.nav{float:right;overflow:hidden;list-style:none;}
 .nav li{float:left;margin-left: 15px;}
 .nav a:hover{text-decoration: none;}
 
