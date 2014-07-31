@@ -14,7 +14,7 @@
 .art-date{color: #AAA;}
 
 .page-nav{margin:50px 360px 0 0;text-align:center;font-size: 14px;}
-.page-nav ul{display:inline-block;}
-.page-nav li{float:left;margin:0 3px;}
-.page-nav a{border: 1px solid #339999;padding: 5px 10px;background: #fff;}
+.page-nav ul{display:inline-block;list-style:none;}
+.page-nav li{float:left;margin:0 3px;*padding:7px 0;}
+.page-nav a{border: 1px solid #339999;padding: 5px 10px;*padding:3px 10px;background: #fff;}
 .page-nav .page-live a, .page-nav a:hover{background: #339999;color: #fff;text-decoration: none;border-color: #339999;}

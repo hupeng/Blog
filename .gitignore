@@ -1,2 +1,2 @@
 *.pyc
-./public_define/pub_define_dir.py
+pub_define_dir.py

@@ -12,6 +12,7 @@ img{border:none;}
 /* header */
 #header{height:50px;background:#fff;-webkit-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 1px 0px, rgba(0, 0, 0, 0.0980392) 0px 0px 1px 0px;-moz-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 1px 0px, rgba(0, 0, 0, 0.0980392) 0px 0px 1px 0px;-ms-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 1px 0px, rgba(0, 0, 0, 0.0980392) 0px 0px 1px 0px;-o-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 1px 0px, rgba(0, 0, 0, 0.0980392) 0px 0px 1px 0px;box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 1px 0px, rgba(0, 0, 0, 0.0980392) 0px 0px 1px 0px;}
 .h-wrap{width: 90%;max-width: 1200px;min-width: 960px;margin:0 auto;overflow:hidden;line-height: 50px;font-size: 18px;}
+.h-wrap img{float:left;}
 .nav{float:right;overflow:hidden;list-style:none;}
 .nav li{float:left;margin-left: 15px;}
 .nav a:hover{text-decoration: none;}
